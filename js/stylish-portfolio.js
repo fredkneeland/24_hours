@@ -40,6 +40,38 @@
     }
   });
 
+
+  //////////////////////////////  Custom codez go here ///////////////////////////////
+
+
+  $("#3:1").on('click', function(e) {
+    console.log("WHATS UP?");
+  });
+
+  $("#3_1").on('click', function(e) {
+    console.log("HI THERE!");
+  });
+
+  var onClickFunction = function(i, j) {
+    var divId = "#div"+i+"_" + j;
+    return function(e) {
+      var opacity = $(divId).css("opacity");
+      opacity /= 2;
+      $(divId).css("opacity", opacity);
+      console.log('button: ' + divId + " was clicked: " + opacity);
+    }
+  }
+
+  // 15 minute time slots
+  for (var i = 1; i < 4; i++) {
+    // days of the week
+    for (var j = 1; j < 7; j++) {
+      $("#"+i+'_'+j).on('click', onClickFunction(i, j));
+    }
+  }
+
+
+
 })(jQuery); // End of use strict
 
 // Disable Google Maps scrolling
@@ -51,6 +83,7 @@ var onMapMouseleaveHandler = function(event) {
   that.off('mouseleave', onMapMouseleaveHandler);
   that.find('iframe').css("pointer-events", "none");
 }
+
 var onMapClickHandler = function(event) {
   var that = $(this);
   // Disable the click handler until the user leaves the map area
