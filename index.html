@@ -133,33 +133,44 @@
     </section>
 
     <!-- Callout -->
-    <section class="callout">
-      <div class="">
-        <!--<h2 class="mx-auto mb-5">Calendar</h2>-->
-        <div class="row calendar-row no-gutters">
-          <!-- TODOs:
-            1. Figure out how to do onclick events, 
-            2. figure out how to set a translucent background 
+              <!-- TODOs:
+            1. X Figure out how to do onclick events, 
+            2. X Figure out how to set a translucent background 
               - Add button for randomly generating translucent data (adding each time so that I can see how it looks getting clearer and clearer)
-            3. figure out how to have a hand for clicking 
+            3. X Figure out how to have a hand for clicking 
             4. Figure out how to have the item change color on mouse over
             5. Figure out how to have the square turn green on select
             6. Add a button for saving events
             7. Figure out how to auto-generate calendar invites on click 
           -->
-          <div id="div1_1" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="1:1" data-toggle="tooltip" data-placement="top" title="Monday: 12:00-12:15 am"><button type="button" id="1_1" class="btn btn-dark grid-btn"></button></div>
-          <div id="div1_2" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="1:2" data-toggle="tooltip" data-placement="top" title="Tuesday: 12:00-12:15 am"><button type="button" id="1_2" class="btn btn-dark grid-btn"></button></div>
-          <div id="div1_3" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="1:3" data-toggle="tooltip" data-placement="top" title="Wednesday: 12:00-12:15 am"><button type="button" id="1_3" class="btn btn-dark grid-btn"></button></div>
-          <div id="div1_4" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="1:4" data-toggle="tooltip" data-placement="top" title="Thursday: 12:00-12:15 am"><button type="button" id="1_4" class="btn btn-dark grid-btn"></button></div>
-          <div id="div1_5" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="1:5" data-toggle="tooltip" data-placement="top" title="Friday: 12:00-12:15 am"><button type="button" id="1_5" class="btn btn-dark grid-btn"></button></div>
-          <div id="div1_6" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="1:6" data-toggle="tooltip" data-placement="top" title="Saturday: 12:00-12:15 am"><button type="button" id="1_6" class="btn btn-dark grid-btn"></button></div>
+    <section class="callout">
+      <div id="calendartable" class="container-fluid">
+        <!--<div class="row calendar-row">
+          <div id="div1_1" class="col calendar-square" data-toggle="tooltip" data-placement="top" title="Sunday: 12:00-12:15 am"><button type="button" id="1_1" class="btn btn-dark grid-btn"></div>
+          <div id="div1_2" class="col calendar-square" data-toggle="tooltip" data-placement="top" title="Monday: 12:00-12:15 am"><button type="button" id="1_2" class="btn btn-dark grid-btn"></div>
+          <div id="div1_3" class="col calendar-square" data-toggle="tooltip" data-placement="top" title="Tuesday: 12:00-12:15 am"><button type="button" id="1_3" class="btn btn-dark grid-btn"></div>
+          <div id="div1_4" class="col calendar-square" data-toggle="tooltip" data-placement="top" title="Wednesday: 12:00-12:15 am"><button type="button" id="1_4" class="btn btn-dark grid-btn"></div>
+          <div id="div1_5" class="col calendar-square" data-toggle="tooltip" data-placement="top" title="Thursday: 12:00-12:15 am"><button type="button" id="1_5" class="btn btn-dark grid-btn"></div>
+          <div id="div1_6" class="col calendar-square" data-toggle="tooltip" data-placement="top" title="Friday: 12:00-12:15 am"><button type="button" id="1_6" class="btn btn-dark grid-btn"></div>
+          <div id="div1_7" class="col calendar-square" data-toggle="tooltip" data-placement="top" title="Saturday: 12:00-12:15 am"><button type="button" id="1_7" class="btn btn-dark grid-btn"></div>
+        </div>-->
+      </div>  
+
+      <!--<div class="">
+        <div class="row calendar-row no-gutters">
+          <div id="div1_1" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Monday: 12:00-12:15 am"><button type="button" id="1_1" class="btn btn-dark grid-btn"></button></div>
+          <div id="div1_2" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Tuesday: 12:00-12:15 am"><button type="button" id="1_2" class="btn btn-dark grid-btn"></button></div>
+          <div id="div1_3" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Wednesday: 12:00-12:15 am"><button type="button" id="1_3" class="btn btn-dark grid-btn"></button></div>
+          <div id="div1_4" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Thursday: 12:00-12:15 am"><button type="button" id="1_4" class="btn btn-dark grid-btn"></button></div>
+          <div id="div1_5" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Friday: 12:00-12:15 am"><button type="button" id="1_5" class="btn btn-dark grid-btn"></button></div>
+          <div id="div1_6" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Saturday: 12:00-12:15 am"><button type="button" id="1_6" class="btn btn-dark grid-btn"></button></div>
           
-          <div id="div2_1" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="2:1" data-toggle="tooltip" data-placement="top" title="Monday: 12:15-12:30 am"><button type="button" id="2_1" class="btn btn-dark grid-btn"></button></div>
-          <div id="div2_2" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="2:2" data-toggle="tooltip" data-placement="top" title="Tuesday: 12:15-12:30 am"><button type="button" id="2_2" class="btn btn-dark grid-btn"></button></div>
-          <div id="div2_3" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="2:3" data-toggle="tooltip" data-placement="top" title="Wednesday: 12:15-12:30 am"><button type="button" id="2_3" class="btn btn-dark grid-btn"></button></div>
-          <div id="div2_4" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="2:4" data-toggle="tooltip" data-placement="top" title="Thursday: 12:15-12:30 am"><button type="button" id="2_4" class="btn btn-dark grid-btn"></button></div>
-          <div id="div2_5" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="2:5" data-toggle="tooltip" data-placement="top" title="Friday: 12:15-12:30 am"><button type="button" id="2_5" class="btn btn-dark grid-btn"></button></div>
-          <div id="div2_6" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" id="2:6" data-toggle="tooltip" data-placement="top" title="Saturday: 12:15-12:30 am"><button type="button" id="2_6" class="btn btn-dark grid-btn"></button></div>
+          <div id="div2_1" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Monday: 12:15-12:30 am"><button type="button" id="2_1" class="btn btn-dark grid-btn"></button></div>
+          <div id="div2_2" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Tuesday: 12:15-12:30 am"><button type="button" id="2_2" class="btn btn-dark grid-btn"></button></div>
+          <div id="div2_3" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Wednesday: 12:15-12:30 am"><button type="button" id="2_3" class="btn btn-dark grid-btn"></button></div>
+          <div id="div2_4" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Thursday: 12:15-12:30 am"><button type="button" id="2_4" class="btn btn-dark grid-btn"></button></div>
+          <div id="div2_5" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Friday: 12:15-12:30 am"><button type="button" id="2_5" class="btn btn-dark grid-btn"></button></div>
+          <div id="div2_6" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Saturday: 12:15-12:30 am"><button type="button" id="2_6" class="btn btn-dark grid-btn"></button></div>
 
           <div id="div3_1" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Monday: 12:30-12:45 am"><button type="button" id="3_1" class="btn btn-dark grid-btn"></button></div>
           <div id="div3_2" class="col-lg-2 col-md-6 mb-5 mb-lg-0 calendar-square" data-toggle="tooltip" data-placement="top" title="Tuesday: 12:30-12:45 am"><button type="button" id="3_2" class="btn btn-dark grid-btn"></button></div>
@@ -170,7 +181,7 @@
 
         </div>
 
-      </div>
+      </div>-->
     </section>
 
     <!-- Portfolio -->

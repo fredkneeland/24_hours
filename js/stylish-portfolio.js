@@ -43,34 +43,118 @@
 
   //////////////////////////////  Custom codez go here ///////////////////////////////
 
-
-  $("#3:1").on('click', function(e) {
-    console.log("WHATS UP?");
-  });
-
-  $("#3_1").on('click', function(e) {
-    console.log("HI THERE!");
-  });
-
   var onClickFunction = function(i, j) {
     var divId = "#div"+i+"_" + j;
     return function(e) {
       var opacity = $(divId).css("opacity");
       opacity /= 2;
       $(divId).css("opacity", opacity);
-      console.log('button: ' + divId + " was clicked: " + opacity);
     }
+  }
+
+  var generateRowElement = function(i) {
+    var rowHTML = '<div class="row calendar-row">';
+
+    for (var j = 1; j < 8; j++) {
+      rowHTML += generateButtonElement(i, j);  
+    }
+
+    rowHTML += "</div>"
+
+    $("#calendartable").append(rowHTML);
+  }
+
+  var getDayOfWeek = function(j) {
+    switch (j) {
+      case 1:
+        return "Sunday";
+      case 2:
+        return "Monday";
+      case 3:
+        return "Tuesday";
+      case 4:
+        return "Wednesday";
+      case 5:
+        return "Thursday";
+      case 6:
+        return "Friday";
+      case 7:
+        return "Saturday";
+    }
+  }
+
+  var getTime = function(i) {
+    var hours = "";
+
+    var hour = i;
+    if (i <= 4) {
+      hours = "12";
+    } else if (i <= 52) {
+      hours = 1 + parseInt((i - 5) / 4);
+    } else {
+      hours = 1 + parseInt((i - 53) / 4);
+    }
+    // hours = 1 + parseInt((i - 5) / 4);
+
+    // if (i <= 48) {
+    //   hours = 1 + parseInt((i - 1) / 4);
+    //   // hours = 12 - parseInt(((i - 1) / 4))
+    // } else {
+    //   hours = 1 + parseInt((i - 49) / 4);
+    // }
+
+    var minutes = "00";
+
+    if (i % 4 == 1) {
+      minutes = "00";
+    } else if (i % 4 == 2) {
+      minutes = "15";
+    } else if (i % 4 == 3) {
+      minutes = "30";
+    } else {
+      minutes = "45";
+    }
+
+    return hours + ":"+minutes;
+  }
+
+  var getTimeOfDay = function(i) {
+    var startTime = getTime(i);
+    // TODO: figure out last time slot case
+    var endTime = getTime(i+1);
+  
+    var time = "am";
+
+    if (i >= 48) {
+      time = "pm";
+    } 
+    if (i == 96) {
+      time = "am";
+    }
+
+    return startTime + "-" + endTime + " " + time;
+  }
+
+  var generateButtonElement = function(i, j) {
+    $("#"+i+'_'+j).on('click', onClickFunction(i, j));
+
+    var buttonHTML = '<div id="div'+i+'_'+j+'"';
+    buttonHTML += ' class="col calendar-square"';
+    buttonHTML += ' data-toggle="tooltip"';
+    buttonHTML += ' data-placement="top"';
+    var dayOfWeek = getDayOfWeek(j);
+    var timeOfDay = getTimeOfDay(i);
+
+    buttonHTML += ' title="' + dayOfWeek + ': ' + getTimeOfDay(i) + '">';
+    buttonHTML += '<button type="button" id="' + i + "_" + j + '"';
+    buttonHTML += ' class="btn btn-dark grid-btn"></div>';
+    return buttonHTML
   }
 
   // 15 minute time slots
-  for (var i = 1; i < 4; i++) {
-    // days of the week
-    for (var j = 1; j < 7; j++) {
-      $("#"+i+'_'+j).on('click', onClickFunction(i, j));
-    }
+  for (var i = 1; i < 97; i++) {
+    generateRowElement(i);
   }
-
-
 
 })(jQuery); // End of use strict
 
